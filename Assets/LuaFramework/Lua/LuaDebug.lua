@@ -883,8 +883,8 @@ local debugger_setBreak = nil
 local function debugger_receiveDebugBreakInfo()
 	if(jit) then
 		if(LuaDebugger.debugLuaType ~= "jit") then
-			local msg = "当前luajit版本为: "..jit.version.." 请使用LuaDebugjit 进行调试!"
-			print(msg)
+			--local msg = "当前luajit版本为: "..jit.version.." 请使用LuaDebugjit 进行调试!"
+			--print(msg)
 			
 		end
 	end
@@ -1575,7 +1575,7 @@ local function start()
 			if(jit) then
 				if(LuaDebugger.debugLuaType ~= "jit") then
 					print("error======================================================")
-					local msg = "当前luajit版本为: "..jit.version.." 请使用LuaDebugjit 进行调试!"
+				--	local msg = "当前luajit版本为: "..jit.version.." 请使用LuaDebugjit 进行调试!"
 					
 					print(msg)
 				end

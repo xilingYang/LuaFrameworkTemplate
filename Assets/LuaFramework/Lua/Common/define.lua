@@ -18,14 +18,16 @@ EventTypes = {
 	Download = "download",
 	Share = "Share",
 	WechatPay = "WechatPay",
-	AliPay = "AliPay"
+	AliPay = "AliPay",
+	IosPay = "IosPay"
 
 }
 --支付平台类型
 PayType=
 {
     Wechat = 1,
-    AliPay = 2
+	AliPay = 2,
+	IosPay = 3
 }
 
 --手机平台类型

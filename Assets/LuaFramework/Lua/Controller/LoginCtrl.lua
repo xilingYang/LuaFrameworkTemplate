@@ -1,6 +1,6 @@
 require "Common/define"
 require "View/LoginPanel"
-
+require "Common/functions"
 ---@class LoginCtrl
 LoginCtrl = {}
 local this = LoginCtrl
@@ -49,6 +49,12 @@ function LoginCtrl:Awake()
         EventTypes.AliPay,
         function(...)
             this:HandleAliPay(...)
+        end
+    )
+    Event.AddListener(
+        EventTypes.IosPay,
+        function(...)
+            this:HandleIosPay(...)
         end
     )
 
@@ -137,7 +143,7 @@ end
 
 
 function LoginCtrl:HandleWechatPay(value1)
-    log("WechatPay")
+    log("Lua 准备调用WechatPay")
     local token = "6a9fa9c7-771d-4bfe-a6c0-fe2ad8483f20"
     local PayTypePlatform = PayTypePlatformType.android .. ""
     local PayType =  PayType.Wechat .. ""
@@ -148,17 +154,17 @@ function LoginCtrl:HandleWechatPay(value1)
         PayType,
         productId,
         function()
-            Debug.Log("支付成功")
+            log("android wechatpay支付成功")
         end,
         function()
-            Debug.Log("支付失败")
+            log("android wechatpay 支付失败")
         end
     )
 end
 
 
 function LoginCtrl:HandleAliPay(value1)
-    log("AliPay111")
+    log("Lua 准备调用AliPay")
     local token = "6a9fa9c7-771d-4bfe-a6c0-fe2ad8483f20"
     local PayTypePlatform = PayTypePlatformType.android .. ""
     local PayType = PayType.AliPay .. ""
@@ -169,10 +175,29 @@ function LoginCtrl:HandleAliPay(value1)
         PayType,
         productId,
         function()
-            Debug.Log("支付成功")
+            log("android  alipay支付成功")
         end,
         function()
-            Debug.Log("支付失败")
+            log("android  alipay支付失败")
+        end
+    )
+end
+function LoginCtrl:HandleIosPay(value1)
+    log("Lua 准备调用ios内购")
+    local token = "6a9fa9c7-771d-4bfe-a6c0-fe2ad8483f20"
+    local PayTypePlatform = PayTypePlatformType.ios 
+    local PayType = PayType.IosPay 
+    local productId = "YYM1"
+    PayManager.GetInstence():Pay(
+        token,
+        PayTypePlatform,
+        PayType,
+        productId,
+        function()
+            log("ios内购支付成功")
+        end,
+        function()
+            log("ios内购支付失败")
         end
     )
 end

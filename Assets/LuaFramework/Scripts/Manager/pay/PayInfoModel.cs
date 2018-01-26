@@ -5,8 +5,8 @@ using UnityEngine;
 public class PayInfoModel
 {
 
-    public string payType;
-    public string osType;
+    public int payType;
+    public int osType;
     public string token;
     public string productId;
 
@@ -15,7 +15,9 @@ public class PayInfoModel
 public enum PayType
 {
     Wechat = 1,
-    AliPay = 2
+    AliPay = 2,
+
+    IosPay = 3
 }
 
 public enum PayTypePlatformType

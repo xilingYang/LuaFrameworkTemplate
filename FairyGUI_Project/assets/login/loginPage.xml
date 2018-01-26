@@ -31,5 +31,6 @@
     </component>
     <component id="n11_ipb0" name="share" src="ytwi2" xy="33,1615" controller="c1,3"/>
     <loader id="n15_ipb0" name="image" xy="345,1234" size="456,371"/>
+    <component id="n16_uyav" name="iosPay" src="ytwi2" xy="38,662" controller="c1,4"/>
   </displayList>
 </component>
