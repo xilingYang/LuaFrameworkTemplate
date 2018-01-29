@@ -107,8 +107,8 @@ public class PayManager : MonoBehaviour {
             Debug.Log (js);
             AndroidJavaClass jc = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
             AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject> ("currentActivity");
-            //调用对应方法
-            jo.Call ("reqWXPay", js);
+            //调用对应方法  传入申请的微信应用id
+            jo.Call ("reqWXPay", js,"wxb952fb8a7cd1b910");  
         }
     }
     IEnumerator SendPostALiPay (string _url, WWWForm _wForm) {
